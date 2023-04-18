@@ -40,4 +40,3 @@ thop  # FLOPs computation
 
 flask
 PassportEye
-pytesseract #have to build tesseract engine separately from source or download https://github.com/tesseract-ocr/tessdoc

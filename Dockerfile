@@ -4,12 +4,12 @@ WORKDIR /app
 COPY requirements.txt /app/requirements.txt
 ENV PATH=/root/.local/bin:$PATH
 RUN apt-get update && apt-get install -y python3-opencv
-RUN apt-get install tesseract-ocr libtesseract-dev -y
+RUN apt-get install tesseract-ocr -y
 RUN pip install --user -r requirements.txt
-COPY ./src /app/src
+COPY ./yolov7 /app/yolov7
 ENV PORT 8181
-ENV TESSERACT_DATA_PATH /app/src/tesseract/tessdata
 
 # set command
 ENTRYPOINT ["python"]
-CMD ["src/yolov7/main.py"]
+CMD ["yolov7/main.py"]
+

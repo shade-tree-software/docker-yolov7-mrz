@@ -11,14 +11,14 @@ from flask import request
 
 app = Flask(__name__)
 
-model = custom(path_or_model='/app/src/yolov7/yolov7-tiny-mrz.pt') 
+model = custom(path_or_model='/app/yolov7/yolov7-tiny-mrz.pt') 
 
 @app.route("/ping")
-def ping() -> dict[str, bool]:
+def ping():
     return {"success": True}
 
 @app.route("/mrz", methods=["POST"])
-def mrz() -> dict[str, Any]:
+def mrz():
     img = Image.open(io.BytesIO(request.stream.read()))
     img_preds = model([img]).xyxy[0]
     if len(img_preds) > 0:
