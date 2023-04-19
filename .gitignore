@@ -1,5 +1,3 @@
-src/tesseract/tessdata
-src/yolov7/*.pt
-src/yolov7/data/test/images
+yolov7/*.pt
 mrz*.tar.xz
 mrz*.tar
